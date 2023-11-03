@@ -61,7 +61,6 @@ class Remove_Duplicate_From_LL
     }}
 // } Driver Code Ends
 
-
 /*
 class Node
     {
@@ -78,12 +77,9 @@ class GfG
     {
 	// Your code here	
 	   Node curr = head;
-	   while(curr != null && curr.next != null) {
+	   while(curr.next != null) {
 	       if(curr.data == curr.next.data) {
 	           curr.next = curr.next.next;
-	       }
-	       else if(curr.data==curr.next.data && curr.next.next==null ) {
-	           curr.next=null;
 	       }
 	       else curr = curr.next;
 	   }
