@@ -119,8 +119,8 @@ class Solution {
         
 		if(fast == null || fast.next == null) return -1;
 		while (head != slow) {
+            head = head.next;
             slow = slow.next;
-			head = head.next;
 		}
 		return head.data;
     }
