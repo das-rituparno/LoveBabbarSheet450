@@ -44,17 +44,10 @@ class Compute {
     
     public void rotate(int arr[], int n)
     {
-        reverse(arr, 0, n-1);
-        reverse(arr, 1, n-1);
-    }
-    
-    public void reverse(int arr[], int start, int end) {
-        while(start <= end) {
-            int temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-            start++;
-            end--;
+        int temp = arr[arr.length-1];
+        for(int i=arr.length-1; i>0; i--) {
+            arr[i] = arr[i-1];
         }
+        arr[0] = temp;
     }
 }
