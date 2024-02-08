@@ -52,10 +52,11 @@ class Solution
         // code here 
         int i = arr1.length-1;
         int j = 0;
+        long temp;
         
         while(i >= 0 && j < arr2.length) {
             if(arr1[i] > arr2[j]) {
-                long temp = arr1[i];
+                temp = arr1[i];
                 arr1[i] = arr2[j];
                 arr2[j] = temp;
                 i--;
