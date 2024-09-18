@@ -55,6 +55,7 @@ class Solution {
         for(int i=0; i<arr.length; i++) {
             temp = Math.max(temp, arr[i]);
         }
+        
         return temp;
     }
 }
