@@ -11,8 +11,8 @@ import java.util.*;
 class Solution {
     int getSingle(int arr[]) {
         // code here
-        int potential = arr[0];
-        for(int i=1; i<arr.length; i++) {
+        int potential = 0;
+        for(int i=0; i<arr.length; i++) {
             potential ^= arr[i];
         }
         return potential;
