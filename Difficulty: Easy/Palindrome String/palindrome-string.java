@@ -1,38 +1,43 @@
 //{ Driver Code Starts
-//Initial Template for Java
-
 import java.io.*;
-import java.util.*;
 
 class GFG {
     public static void main(String args[]) throws IOException {
-        BufferedReader read =
-            new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(read.readLine());
         while (t-- > 0) {
-            String S = read.readLine();
-            
+            String s = read.readLine(); // Use lowercase 's'
+
             Solution ob = new Solution();
-            System.out.println(ob.isPalindrome(S));
+            if (ob.isPalindrome(s)) // Check palindrome
+                System.out.println("true");
+            else
+                System.out.println("false");
+            System.out.println("~");
         }
     }
 }
+
 // } Driver Code Ends
 
 
-//User function Template for Java
+// User function Template for Java
 
 class Solution {
-    int isPalindrome(String S) {
+    boolean isPalindrome(String s) {
         // code here
+        String rev = reverse(s).toString();
+        // rev = rev.toString();
+        return rev.equals(s);
+    }
+    
+    StringBuilder reverse(String s) {
         StringBuilder sb = new StringBuilder();
-        
-        for(int i=S.length()-1; i>=0; i--) {
-            char ch = S.charAt(i);
+        for(int i=s.length()-1; i>=0; i--) {
+            char ch = s.charAt(i);
+            // res = ch + res;
             sb.append(ch);
         }
-        
-        if(S.equals(sb.toString())) return 1;
-        return 0;
+        return sb;
     }
 };
