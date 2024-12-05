@@ -34,26 +34,21 @@ class Solution {
     public void sort012(int[] arr) {
         // code here
         int start = 0;
-        int mid = 0;
         int end = arr.length-1;
+        int mid = 0;
         
         while(mid <= end) {
             if(arr[mid] == 0) {
-                int temp = 0;
-                temp = arr[start];
-                arr[start] = arr[mid];
-                arr[mid] = temp;
+                int temp = arr[mid];
+                arr[mid] = arr[start];
+                arr[start] = temp;
                 start++;
                 mid++;
             }
-            // if(arr[mid] == 1) {
-            //     mid++;
-            // }
             else if(arr[mid] == 2) {
-                int temp = 0;
-                temp = arr[end];
-                arr[end] = arr[mid];
-                arr[mid] = temp;
+                int temp = arr[mid];
+                arr[mid] = arr[end];
+                arr[end] = temp;
                 end--;
             }
             else mid++;
