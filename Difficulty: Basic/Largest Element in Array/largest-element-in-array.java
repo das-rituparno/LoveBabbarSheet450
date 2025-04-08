@@ -53,10 +53,10 @@ class GFG {
 class Solution {
     public static int largest(int[] arr) {
         // code here
-        int potential = Integer.MIN_VALUE;
-        for(int item : arr) {
-            potential = Math.max(item, potential);
+        int ans = Integer.MIN_VALUE;
+        for(int it : arr) {
+            ans = Math.max(it, ans);
         }
-        return potential;
+        return ans;
     }
 }
