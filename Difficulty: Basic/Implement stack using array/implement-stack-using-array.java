@@ -14,9 +14,7 @@ class MyStack {
 
     public int pop() {
         // Your Code
-        if(top != -1) {
-            return arr[top--];
-        }
-        else return -1;
+        if(top < 0) return -1;
+        else return arr[top--];
     }
 }
