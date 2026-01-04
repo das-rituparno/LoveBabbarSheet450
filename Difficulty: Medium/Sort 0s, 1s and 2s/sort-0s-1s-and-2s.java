@@ -1,9 +1,7 @@
 class Solution {
     public void sort012(int[] arr) {
         // code here
-        int start = 0;
-        int end = arr.length-1;
-        int mid = 0;
+        int start = 0, mid = 0, end = arr.length-1;
         
         while(mid <= end) {
             if(arr[mid] == 0) {
@@ -18,7 +16,6 @@ class Solution {
             else mid++;
         }
     }
-    
     public void swap(int[] nums, int start, int end) {
         int temp = nums[start];
         nums[start] = nums[end];
