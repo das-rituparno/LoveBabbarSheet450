@@ -16,9 +16,10 @@ class Solution {
             else mid++;
         }
     }
-    public void swap(int[] nums, int start, int end) {
-        int temp = nums[start];
-        nums[start] = nums[end];
-        nums[end] = temp;
+    
+    public void swap(int[] nums, int s, int e) {
+        int temp = nums[s];
+        nums[s] = nums[e];
+        nums[e] = temp;
     }
 }
