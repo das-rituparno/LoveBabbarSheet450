@@ -3,20 +3,26 @@
 class Solution {
     static int[] replaceWithRank(int arr[], int N) {
         // code here
-        int[] sorted = arr.clone();
-        Arrays.sort(sorted);
-        
-        HashMap<Integer, Integer> map = new HashMap<>();
-        int position = 1;
-        
-        for (int i : sorted) {
-            if (!map.containsKey(i)) map.put(i, position++);
+        int[] sorted_array = arr.clone();
+        Arrays.sort(sorted_array);
+
+        int index = 1;
+        int[] result = new int[sorted_array.length];
+        LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>();
+        for (int i=0; i<sorted_array.length; i++) {
+            if (!map.containsKey(sorted_array[i])) {
+                map.put(sorted_array[i], index++);
+            }
         }
 
-        for (int i=0; i<arr.length; i++) {
-            arr[i] = map.get(arr[i]);
+        for (int i=0; i<result.length; i++) {
+            result[i] = map.get(arr[i]);
         }
-
-        return arr;
+        return result;
     }
 }
+
+/*
+Time Complexity - O(n log n), used sorting
+Space Complexity - O(n)
+*/
