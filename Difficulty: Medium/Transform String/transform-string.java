@@ -1,55 +1,33 @@
-//{ Driver Code Starts
-//Initial Template for Java
-
-import java.io.*;
-import java.util.*;
-class GfG
-{
-    public static void main(String args[])throws IOException
-        {
-            BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
-            int t = Integer.parseInt(br.readLine());
-            while(t-->0)
-                {
-                    String arr[] = br.readLine().split(" ");
-                    String A = arr[0];
-                    String B = arr[1];
-                    Solution obj = new Solution();
-                    System.out.println(obj.transform (A, B));
-                
-System.out.println("~");
-}
-        }
-}
-// } Driver Code Ends
-
-
 // User function Template for Java
 
 class Solution {
-    int transform(String A, String B) {
+    int transform(String a, String b) {
         // code here
-        // GeeksForGeeks
-        // ForGeeksGeeks
-        
-        if(A.length() != B.length()) return -1;
-        
-        int[] count = new int[256];
-        for(char c : A.toCharArray()) count[c]++;
-        for(char c : B.toCharArray()) count[c]--;
-        
-        for(int c : count) {
-            if(c != 0) return -1;
+        if (a.length() != b.length()) return -1;
+        int n = a.length();
+        int[] alphabets =new int[256];
+        for (int i=0; i<n; i++) {
+            alphabets[a.charAt(i)]++;
+            alphabets[b.charAt(i)]--;
         }
-        
-        int i = A.length()-1;
-        int j = B.length()-1;
-        
-        while(i >= 0) {
-            if(A.charAt(i) == B.charAt(j)) j--;
-            i--;
+        for (int item : alphabets) {
+            if (item != 0) {
+                return -1;
+            }
         }
-        
-        return j+1;
+
+        int first = n-1, last = n-1;
+        int match = 0;
+
+        while (first >= 0) {
+            if (a.charAt(first) == b.charAt(last)) {
+                match++;
+                first--;
+                last--;
+            }
+            else first--;
+        }
+
+        return n-match;
     }
 }
