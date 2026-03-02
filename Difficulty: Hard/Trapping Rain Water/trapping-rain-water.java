@@ -1,23 +1,32 @@
 class Solution {
     public int maxWater(int arr[]) {
         // code here
-        int n = arr.length;
-        int left = 0, right = n - 1;
-        int ans = 0;
-        int maxLeft = 0, maxRight = 0;
+        int left = 0;
+        int max_left = 0;
+        int right = arr.length-1;;
+        int max_right = 0;
+        int trapping_water = 0;
         
-        while(left <= right) {
+        while(left < right) {
             if(arr[left] < arr[right]) {
-                if(arr[left] > maxLeft) maxLeft = arr[left];
-                else ans += maxLeft - arr[left];
+                if(max_left <= arr[left]) {
+                    max_left = arr[left];
+                }
+                else {
+                    trapping_water += max_left - arr[left];
+                }
                 left++;
             }
             else {
-                if(arr[right] > maxRight) maxRight = arr[right];
-                else ans += maxRight - arr[right];
+                if(max_right <= arr[right]) {
+                    max_right = arr[right];
+                }
+                else {
+                    trapping_water += max_right - arr[right];
+                }
                 right--;
             }
         }
-        return ans;
+        return trapping_water;
     }
 }
