@@ -3,22 +3,17 @@
 class Solution {
     public int rowWithMax1s(int arr[][]) {
         // code here
-        int n = arr.length;
-        int m = arr[0].length;
         int row = 0;
-        int col = m-1;
-        int max_ones = -1;
+        int col = arr[0].length-1;
+        int answer = -1;
 
-        while (row < n && col >= 0) {
+        while (row < arr.length && col >= 0) {
             if (arr[row][col] == 1) {
-                max_ones = row;
                 col--;
+                answer = Math.max(row, answer);
             }
-            else {
-                row++;
-            }
+            else row++;
         }
-        
-        return max_ones;
+        return answer;
     }
 }
