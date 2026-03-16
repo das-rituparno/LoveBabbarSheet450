@@ -13,14 +13,13 @@ class Node {
 class Solution {
     public Node segregate(Node head) {
         // code here
-        Node zeroHead = new Node(-1);
-        Node oneHead  = new Node(-1);
-        Node twoHead  = new Node(-1);
-
-        Node zero = zeroHead;
-        Node one  = oneHead;
-        Node two  = twoHead;
-
+        Node zero_head = new Node(-1);
+        Node one_head = new Node(-1);
+        Node two_head = new Node(-1);
+        
+        Node zero = zero_head;
+        Node one = one_head;
+        Node two = two_head;
         Node current = head;
         
         while(current != null) {
@@ -32,17 +31,17 @@ class Solution {
                 one.next = current;
                 one = one.next;
             }
-            else {
+            else if(current.data == 2) {
                 two.next = current;
-                two = two.next;
+                two = two.next; 
             }
             current = current.next;
         }
         
-        zero.next = (oneHead.next != null) ? oneHead.next : twoHead.next;
-        one.next = twoHead.next;
+        zero.next = one_head.next != null ? one_head.next : two_head.next;
+        one.next = two_head.next;
         two.next = null;
         
-        return zeroHead.next;
+        return zero_head.next;
     }
 }
