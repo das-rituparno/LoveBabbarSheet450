@@ -5,15 +5,15 @@ class Solution {
         // code here
         int row = 0;
         int col = arr[0].length-1;
-        int answer = -1;
-
-        while (row < arr.length && col >= 0) {
-            if (arr[row][col] == 1) {
+        int max_ones = -1;
+        
+        while(row < arr.length && col >= 0) {
+            if(arr[row][col] == 1) {
                 col--;
-                answer = Math.max(row, answer);
+                max_ones = row;
             }
             else row++;
         }
-        return answer;
+        return max_ones;
     }
 }
