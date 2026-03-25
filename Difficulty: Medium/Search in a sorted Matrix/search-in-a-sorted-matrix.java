@@ -1,23 +1,25 @@
 class Solution {
     public boolean searchMatrix(int[][] mat, int x) {
         // code here
-        int n = mat.length;
-        int m = mat[0].length;
+        int row = 0;
+        int col = mat[0].length-1;
         
-        int start = 0;
-        int end = m*n-1;
-        
-        while(start <= end) {
-            int mid = (start+end)/2;
-            
-            int row = mid/m;
-            int col = mid%m;
-            
-            if(mat[row][col] == x) return true;
-            else if(mat[row][col] < x) start = mid+1;
-            else end = mid-1;
+        while(row < mat.length && col >= 0) {
+            if(mat[row][col] == x) {
+                return true;
+            }
+            else if(mat[row][col] > x) {
+                col--;
+            }
+            else {
+                row++;
+            }
         }
-        
         return false;
     }
 }
+/*
+1  5  9
+14 20 21
+30 34 43
+*/
