@@ -9,8 +9,8 @@ class Solution {
         
         while(row < arr.length && col >= 0) {
             if(arr[row][col] == 1) {
-                max_ones = row;
                 col--;
+                max_ones = row;
             }
             else row++;
         }
